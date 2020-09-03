@@ -1,0 +1,16 @@
+.o_badge_notification {
+    top: 0;
+    right: 20px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: #FF6347;
+    font: bold 16px/20px "Helvetica Neue", sans-serif;
+    color: white;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.4);
+    position: absolute
+}
+
+a.o_app.o_menuitem {
+    position: relative!important;
+}

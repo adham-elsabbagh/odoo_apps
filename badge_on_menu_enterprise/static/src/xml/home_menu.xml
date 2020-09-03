@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="HomeMenu.Content">
+        <t t-jquery="div.o_caption" t-operation="after">
+            <t t-call="ActivitiesBadge"/>
+        </t>
+    </t>
+
+    <t t-name="ActivitiesBadge" >
+        <t t-if="app.planned_count">
+            <span class="o_badge_notification"><t t-esc="app.planned_count"/></span>
+        </t>
+    </t>
+
+</templates>
+

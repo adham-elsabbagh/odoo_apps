@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="page_404_custom" inherit_id="website.page_404">
+        <xpath expr="//t[@t-call='website.404']" position="replace">
+            <t t-call="redirect_page.404_custom">
+                <div class="container">
+                    <div class="alert alert-info mt32">
+                        <p>This page does not exist, but you can create it as you are administrator of this site.</p>
+                        <a role="button" class="btn btn-primary js_disable_on_click" t-attf-href="/website/add/#{ path }#{ from_template and '?template=%s' % from_template }">Create Page</a>
+                    </div>
+                    <div class="text-center text-muted">Edit the content below this line to adapt the default "page not found" page.</div>
+                </div>
+                <hr/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="404_custom">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <t t-raw="0"/>
+                <div class="oe_structure oe_empty">
+                    <div class="container">
+                        <h1 class="mt32">Sorry, We Can't Reach The Server
+                            Right Now!</h1>
+                        <p>
+                            The page you were looking for could not be found; it is possible you have
+                            typed the address incorrectly, if you are sure
+                            that the address is correct please <a t-attf-href="#{not_found_scheme+'://'+not_found_host}">click here</a> to reload the page.
+                        </p>
+                        <p>Maybe you were looking for one of these popular pages ?</p>
+                        <ul>
+                            <li><p>You can go to
+                             the Home Page and check later
+                                <a href="/">Homepage</a>.</p>
+                            </li>
+                            <li><p>Feel free to
+                                <a href="/contactus">Contact Us</a>.</p></li>
+                            <li><p>Try again by clicking on  <a
+                                    t-attf-href="#{not_found_scheme+'://'+not_found_host}">Reload</a>.</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <t t-if="request.debug">
+                    <t t-call="website.http_error_debug"/>
+                </t>
+            </div>
+        </t>
+    </template>
+
+</odoo>
